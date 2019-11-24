@@ -1,5 +1,9 @@
-import React from "react"
-import styled, { createGlobalStyle } from "styled-components"
+import React from "react";
+import { Link } from 'gatsby';
+import styled, { createGlobalStyle } from "styled-components";
+
+import StyledLink from '../components/Common/StyledLink';
+import MainWrapper from '../components/Layout/MainWrapper';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -11,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
 
-  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  body {
     margin: 0;
     padding: 0;
     font-weight: normal;
@@ -32,23 +36,20 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const SyledWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-color: #906090;
-`;
-
-const H1 = styled.h1`
+const H1:any = styled.h1`
   margin: 0;
   padding: 0;
+  color: ${(props:any) => props.isRed ? 'red' : '#900690'};
 `;
 
 const IndexPage = () => (
   <>
     <GlobalStyle />
-    <SyledWrapper>
-      <H1>Hello World</H1>
-    </SyledWrapper>
+    <MainWrapper>
+      <H1>Hello World asdasd</H1>
+      <H1 isRed>Witaj świecie</H1>
+      <StyledLink to='/about' text='O mnie'/>
+    </MainWrapper>
   </>
 )
 
